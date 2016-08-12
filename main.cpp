@@ -80,7 +80,7 @@ void impresion(int*** matriz,int divisor,int grado){
 		cout<<setfill('-')<<setw(20);
 		for(int j = 0;j<3;j++ ){
 			for(int k = 0;k<grado+1;k++){
-				cout<<setw(4)<<matriz[i][j][k];
+				cout<<setfill(' ')<<setw(4)<<matriz[i][j][k];
 			}
 			cout<<endl;
 		}
