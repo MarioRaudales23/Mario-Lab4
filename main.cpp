@@ -51,11 +51,8 @@ void polinomio(){
 	}
 	cout<<"Ingrese el divisor: ";
 	cin>>numeroevalu;
-	cout<<"a";
 	for(int i=0;i<grado;i++){
-		cout<<"a";
 		for(int j=0;j<2;j++){
-			cout<<"b";
 			if(j == 0){
 				matriz[i][1][0] = matriz[i][0][0];
 				matriz[i][2][0] = matriz[i][0][0];
@@ -67,6 +64,7 @@ void polinomio(){
 			}
 		}
 	}
+	cout<<endl<<"el residuo es:"<<matriz[0][2][grado];
 	impresion(matriz,numeroevalu,grado);
 	for(int i = 0;i<grado;i++){
 		for(int j = 0;j < 3;j++){
@@ -79,9 +77,10 @@ void polinomio(){
 
 void impresion(int*** matriz,int divisor,int grado){
 	for(int i = 0;i< grado+1;i++){
+		cout<<setfill('-')<<setw(20);
 		for(int j = 0;j<3;j++ ){
 			for(int k = 0;k<grado+1;k++){
-				cout<<"["<<matriz[i][j][k]<<"]";
+				cout<<setw(4)<<matriz[i][j][k];
 			}
 			cout<<endl;
 		}
