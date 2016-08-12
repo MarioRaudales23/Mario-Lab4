@@ -46,20 +46,23 @@ void polinomio(){
 		matriz[0][cont] = asignar;
 		cont++;
 	}
-	for(int i = 0;i<3;i++){
-		if(i == 0){
+	impresion(matriz,numeroevalu,grado);
+	for(int i= 0;i<3;i++){
+		if(i=0){
+			
 			matriz[1][0] = matriz[0][0];
 			matriz[2][0] = matriz[0][0];
-			impresion(matriz,numeroevalu,grado);
+			//impresion(matriz,numeroevalu,grado);
 		}else{
-			for(int j = 1;j<grado+1;i++){
-				matriz[1][j] =	matriz[2][j-1] * numeroevalu;
-				matriz[2][j] =	matriz[1][j] + matriz[0][j];
-				impresion(matriz,numeroevalu,grado);
+			for(int j = 1;j<=grado;j++){
+				cout<<"h";
+				matriz[i][j] =	matriz[i+1][j-1] * numeroevalu;
+				matriz[i+1][j] = matriz[i-1][j] + matriz[i][j];
+				//impresion(matriz,numeroevalu,grado);
 			}
 		}
-		
 	}
+	impresion(matriz,numeroevalu,grado);
 	for(int i = 0;i<3;i++){
 		delete[] matriz[i];
 	}
@@ -69,17 +72,9 @@ void polinomio(){
 void impresion(int** matriz,int divisor,int grado){
 	cout<<setfill('-')<<setw(20);
 	cout<<endl;
-	for(int i = 0;i < 3;i++){
+	for(int i = 0;i<3;i++){
 		for(int j = 0;j<grado+1;j++){
-			if(i == 0){
-				if(j == grado){
-					cout<<setw(4)<<matriz[i][j]<<setw(4)<<"|";
-				}else{
-					cout<<setw(4)<<matriz[i][j];
-				}
-			}else{
-				cout<<setw(4)<<matriz[i][j];
-			}	
+			cout<<"["<<matriz[i][j]<<"]";	
 		}
 		cout<<endl;
 	}
