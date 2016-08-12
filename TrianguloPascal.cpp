@@ -1,5 +1,7 @@
-#include <TrianguloPascal.h>
+#include "TrianguloPascal.h"
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 
 TrianguloPascal::TrianguloPascal(int linea){
@@ -26,13 +28,13 @@ int TrianguloPascal::combinar(int numerosuper,int numeroinfer){
 	}
 }
 
-int TrianguloPascal::impresion(){
+void TrianguloPascal::impresion(){
 	for(int i = 0;i <= lineas;i++){
 		for(int j = 0;j<= i;j++){
 			if(combinar(i,j)%2 != 0){
-				cout<<".";
+				cout<<setw(lineas)<<combinar(i,j);
 			}else{
-				cout<<" ";
+				cout<<setw(lineas)<<combinar(i,j);
 			}
 		}
 		cout<<endl;
