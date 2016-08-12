@@ -51,9 +51,10 @@ void polinomio(){
 	}
 	cout<<"Ingrese el divisor: ";
 	cin>>numeroevalu;
-	for(int i= 0;i<grado;i++){
+	cout<<"a";
+	for(int i=0;i<grado;i++){
 		cout<<"a";
-		for(int j=0;j<3;j++){
+		for(int j=0;j<2;j++){
 			cout<<"b";
 			if(j == 0){
 				matriz[i][1][0] = matriz[i][0][0];
@@ -66,6 +67,7 @@ void polinomio(){
 			}
 		}
 	}
+	impresion(matriz,numeroevalu,grado);
 	for(int i = 0;i<grado;i++){
 		for(int j = 0;j < 3;j++){
 			delete[] matriz[i][j];
@@ -76,9 +78,9 @@ void polinomio(){
 }
 
 void impresion(int*** matriz,int divisor,int grado){
-	for(int i = 0;i< grado;i++){
+	for(int i = 0;i< grado+1;i++){
 		for(int j = 0;j<3;j++ ){
-			for(int k = 0;k<grado;k++){
+			for(int k = 0;k<grado+1;k++){
 				cout<<"["<<matriz[i][j][k]<<"]";
 			}
 			cout<<endl;
