@@ -52,12 +52,14 @@ void polinomio(){
 	cout<<"Ingrese el divisor: ";
 	cin>>numeroevalu;
 	for(int i= 0;i<grado;i++){
+		cout<<"a";
 		for(int j=0;j<3;j++){
+			cout<<"b";
 			if(j == 0){
 				matriz[i][1][0] = matriz[i][0][0];
 				matriz[i][2][0] = matriz[i][0][0];
 			}else{
-				for(int k = 1;k<=grado;j++){
+				for(int k = 1;k<=grado;k++){
 					matriz[i][j][k] = matriz[i][j+1][k-1] * numeroevalu;
 					matriz[i][j+1][k] = matriz[i][j-1][k] + matriz[i][j][k];
 				}
