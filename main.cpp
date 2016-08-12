@@ -82,6 +82,9 @@ void impresion(int*** matriz,int divisor,int grado){
 			for(int k = 0;k<grado+1;k++){
 				cout<<setfill(' ')<<setw(4)<<matriz[i][j][k];
 			}
+			if(j== 0){
+				cout<<"|"<<numeroevalu;
+			}
 			cout<<endl;
 		}
 		cout<<endl;
