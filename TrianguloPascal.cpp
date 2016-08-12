@@ -10,31 +10,29 @@ TrianguloPascal::TrianguloPascal(int linea){
 
 int TrianguloPascal::factorial(int numero){
 	int factorial = 1;
-	for(int i = 1;i < numero;i++){
+	for(int i = 1;i <=numero;i++){
 		factorial *= i;
 	}
 	return factorial;
 }
 
 int TrianguloPascal::combinar(int numerosuper,int numeroinfer){
-	if(numeroinfer == 1){
-		return numerosuper;
-	}else{
-		if(numerosuper == numeroinfer){
-			return 1;
-		}else{
-			return	factorial(numerosuper)/(factorial(numeroinfer) * factorial((numerosuper - numeroinfer)));
-		}	
-	}
+	int combinar;
+			combinar = factorial(numerosuper)/(factorial(numeroinfer) * factorial((numerosuper - numeroinfer)));
+	return combinar;
 }
 
 void TrianguloPascal::impresion(){
-	for(int i = 0;i <= lineas;i++){
+	int x = lineas * 2;
+	for(int i = 0;i <= lineas;i++,x-=2){
+		for(int s = 0;s<=x;s++){
+			cout<<" ";	
+		}
 		for(int j = 0;j<= i;j++){
-			if(combinar(i,j)%2 != 0){
-				cout<<setw(lineas)<<combinar(i,j);
+			if(combinar(i,j) %2 == 0){
+				cout<<setw(4)<<"o";
 			}else{
-				cout<<setw(lineas)<<combinar(i,j);
+				cout<<setw(4)<<".";
 			}
 		}
 		cout<<endl;

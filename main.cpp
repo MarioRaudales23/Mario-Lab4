@@ -40,7 +40,7 @@ void polinomio(){
 	for(int i = 0;i<grado+1;i++){
 		matriz[i] = new int[grado+1];
 	}
-	for(int i = grado;i>=0;i++){
+	for(int i = grado;i>=0;i--){
 		cout<<"Ingrese el polinomio de grado x^"<<i;
 		cin>>asignar;
 		matriz[0][cont] = asignar;
@@ -49,11 +49,13 @@ void polinomio(){
 	for(int i = 0;i<3;i++){
 		if(i == 0){
 			matriz[1][0] = matriz[0][0];
-			matriz[2][0] = matriz[0][0]
+			matriz[2][0] = matriz[0][0];
+			impresion(matriz,numeroevalu,grado);
 		}else{
 			for(int j = 1;j<grado+1;i++){
 				matriz[1][j] =	matriz[2][j-1] * numeroevalu;
 				matriz[2][j] =	matriz[1][j] + matriz[0][j];
+				impresion(matriz,numeroevalu,grado);
 			}
 		}
 		
@@ -65,7 +67,8 @@ void polinomio(){
 }
 
 void impresion(int** matriz,int divisor,int grado){
-	cout<<setfill(-)<<setw(20);
+	cout<<setfill('-')<<setw(20);
+	cout<<endl;
 	for(int i = 0;i < 3;i++){
 		for(int j = 0;j<grado+1;j++){
 			if(i == 0){
@@ -77,9 +80,6 @@ void impresion(int** matriz,int divisor,int grado){
 			}else{
 				cout<<setw(4)<<matriz[i][j];
 			}	
-		}
-		if(i == 1){
-			cout<<setfill(-)<<setw(grado*4);
 		}
 		cout<<endl;
 	}
