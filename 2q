@@ -3,7 +3,7 @@
 #include <iomanip>
 using namespace std;
 
-void impresion(int***,int,int);
+void impresion(int**,int,int);
 void polinomio();
 	
 int main(){
@@ -36,50 +36,48 @@ void polinomio(){
 	int grado,asignar,numeroevalu,cont = 0;
 	cout<<"Ingrese el grado del polinomio";
 	cin>>grado;
-	int*** matriz = new int**[grado+1];
-	for(int i = 0;i<grado+1;i++){
-		matriz[i] = new int*[3];
-		for(int j = 0;j < 3;j++){
-			matriz[i][j] = new int[grado+1];
-		}
+	int** matriz = new int*[3];
+	for(int i = 0;i<grado;i++){
+		matriz[i] = new int[grado];
 	}
 	for(int i = grado;i>=0;i--){
 		cout<<"Ingrese el polinomio de grado x^"<<i<<": ";
 		cin>>asignar;
-		matriz[0][0][cont] = asignar;
+		matriz[0][cont] = asignar;
 		cont++;
 	}
 	cout<<"Ingrese el divisor: ";
 	cin>>numeroevalu;
-	for(int i= 0;i<grado;i++){
-		for(int j=0;j<3;j++){
-			if(j == 0){
-				matriz[i][1][0] = matriz[i][0][0];
-				matriz[i][2][0] = matriz[i][0][0];
-			}else{
-				for(int k = 1;k<=grado;j++){
-					matriz[i][j][k] = matriz[i][j+1][k-1] * numeroevalu;
-					matriz[i][j+1][k] = matriz[i][j-1][k] + matriz[i][j][k];
-				}
+	impresion(matriz,numeroevalu,grado);
+	cout<<"h";
+	for(int i= 0;i<2;i++){
+		cout<<"h";
+		if(i=0){
+			matriz[1][0] = matriz[0][0];
+			matriz[2][0] = matriz[0][0];
+			//impresion(matriz,numeroevalu,grado);
+		}else{
+			for(int j = 1;j<=grado;j++){
+				cout<<"h";
+				matriz[i][j] =	matriz[i+1][j-1] * numeroevalu;
+				matriz[i+1][j] = matriz[i-1][j] + matriz[i][j];
+				//impresion(matriz,numeroevalu,grado);
 			}
 		}
 	}
-	for(int i = 0;i<grado;i++){
-		for(int j = 0;j < 3;j++){
-			delete[] matriz[i][j];
-		}
+	impresion(matriz,numeroevalu,grado);
+	for(int i = 0;i<3;i++){
 		delete[] matriz[i];
 	}
 	delete[] matriz;
 }
 
-void impresion(int*** matriz,int divisor,int grado){
-	for(int i = 0;i< grado;i++){
-		for(int j = 0;j<3;j++ ){
-			for(int k = 0;k<grado;k++){
-				cout<<"["<<matriz[i][j][k]<<"]";
-			}
-			cout<<endl;
+void impresion(int** matriz,int divisor,int grado){
+	cout<<setfill('-')<<setw(20);
+	cout<<endl;
+	for(int i = 0;i<3;i++){
+		for(int j = 0;j<grado+1;j++){
+			cout<<"["<<matriz[i][j]<<"]";	
 		}
 		cout<<endl;
 	}
